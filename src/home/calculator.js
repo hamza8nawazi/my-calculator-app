@@ -45,9 +45,9 @@ const Calculator = () => {
       <Button value="9" onClick={addToInput} />
       <Button value="*" onClick={addToInput} />
 
-      <button onClick={clearAll}>C</button>
+      <Button value="C" onClick={clearAll} />
       <Button value="0" onClick={addToInput} />
-      <button onClick={calculateResult}>=</button>
+      <Button value="=" onClick={calculateResult} />
       <Button value="/" onClick={addToInput} />
       </div>
     </div>
