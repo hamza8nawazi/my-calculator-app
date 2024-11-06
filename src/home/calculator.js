@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import "./calculator.css";
+import Button from "../components/Button/button";
 
 const Calculator = () => {
   const [input, setInput] = useState("");
-  // const [result, setResult] = useState('');
+  const [result, setResult] = useState('');
 
   const addToInput = (value) => {
     setInput(input + value);
@@ -11,36 +12,43 @@ const Calculator = () => {
 
   const clearAll = () => {
     setInput("");
-    // setResult('');
+    setResult('');
   };
+
+  const calculateResult = () => {
+      const calculatedResult = eval(input);
+      setResult(calculatedResult);
+   
+  };
+
 
   return (
     <div className="calculator">
       <h2>Calculator</h2>
       <div className="display">
         <div className="input">{input}</div>
-        <div className="result">result</div>
+        <div className="result">{result}</div>
       </div>
       <div className="buttons">
-        <button onClick={() => addToInput("1")}>1</button>
-        <button onClick={() => addToInput("2")}>2</button>
-        <button onClick={() => addToInput("3")}>3</button>
-        <button onClick={() => addToInput("+")}>+</button>
+      <Button value="1" onClick={addToInput} />
+      <Button value="2" onClick={addToInput} />
+      <Button value="3" onClick={addToInput} />
+      <Button value="+" onClick={addToInput} />
 
-        <button onClick={() => addToInput("4")}>4</button>
-        <button onClick={() => addToInput("5")}>5</button>
-        <button onClick={() => addToInput("6")}>6</button>
-        <button onClick={() => addToInput("-")}>-</button>
+      <Button value="4" onClick={addToInput} />
+      <Button value="5" onClick={addToInput} />
+      <Button value="6" onClick={addToInput} />
+      <Button value="-" onClick={addToInput} />
 
-        <button onClick={() => addToInput("7")}>7</button>
-        <button onClick={() => addToInput("8")}>8</button>
-        <button onClick={() => addToInput("9")}>9</button>
-        <button onClick={() => addToInput("*")}>*</button>
+      <Button value="7" onClick={addToInput} />
+      <Button value="8" onClick={addToInput} />
+      <Button value="9" onClick={addToInput} />
+      <Button value="*" onClick={addToInput} />
 
-        <button onClick={clearAll}>C</button>
-        <button onClick={() => addToInput("0")}>0</button>
-        <button>=</button>
-        <button onClick={() => addToInput("/")}>/</button>
+      <button onClick={clearAll}>C</button>
+      <Button value="0" onClick={addToInput} />
+      <button onClick={calculateResult}>=</button>
+      <Button value="/" onClick={addToInput} />
       </div>
     </div>
   );
