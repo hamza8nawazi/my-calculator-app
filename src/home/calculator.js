@@ -6,10 +6,16 @@ const Calculator = () => {
   const [input, setInput] = useState("");
   const [result, setResult] = useState('');
 
-  const addToInput = (value) => {
-    setInput(input + value);
-  };
+ 
+ const operators = ["+", "-", "*", "/"];
 
+ 
+ const addToInput = (value) => {
+   if (operators.includes(input.slice(-1)) && operators.includes(value)) {
+     return;
+   }
+   setInput((prevInput) => prevInput + value);
+ };
   const clearAll = () => {
     setInput("");
     setResult('');
